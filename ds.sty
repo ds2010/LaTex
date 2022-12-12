@@ -1,0 +1,300 @@
+%%
+%% This is file `ds.sty'.
+%% 
+%% Copyright notice.
+%% 
+%%    This files are distributed
+%%    WITHOUT ANY WARRANTY; without even the implied warranty of
+%%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+%% 
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}%
+%%%  @LaTeX-file{
+%%%     filename        = "ds.sty"
+%%%     version         = "28Nov2022",
+%%%     date            = "2022/11/28",
+%%%     author          = "Sheng Dai (mailto:sheng.dai@utu.fi)",
+%%%     copyright       = "Copyright (C) 2022 Sheng Dai,
+%%%                        all rights reserved.  Copying of this file is
+%%%                        authorized only if either:
+%%%                        (1) you make absolutely no changes to your copy,
+%%%                        including name; OR
+%%%                        (2) if you do make changes, you first rename it
+%%%                        to some other name.",
+%%%     address         = "Department of Economics, Turku School of Economics
+%%%                        Rehtorinpellonkatu 3
+%%% 					   20500 Turku,
+%%%                        Finland",
+%%%     email           = "sheng.dai@utu.fi",
+%%%     codetable       = "ISO/ASCII",
+%%%     supported       = "yes",
+%%%  }
+%%%
+%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% BibTeX defs
+%%
+\newcommand{\citesansparen}[1]{{\citename{#1}, \citeyear*{#1}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Commands to help with spacing in tables:
+%%
+\newcommand\phn{\phantom{0}}
+\newcommand\phd{\phantom{.}}
+\newcommand\phs{\phantom{$-$}}
+\newcommand\phm[1]{\phantom{#1}}
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% Math defs
+%%
+%
+% misc. stuff:
+\newcommand{\E}{\mathsf{E}}
+\newcommand{{\R}}{{\mathbb{R}}}
+\newcommand{{\real}}{{\mathbb{R}}}
+\newcommand{{\N}}{{\mathbb{N}}}
+% \newcommand{{\Pr}}{{\rm Pr}}
+\newcommand{{\prob}}{{\rm Pr}}
+%
+% inequalities:
+\newcommand{{\gene}}{{\ \buildrel\ge\over\ne\ }}
+\newcommand{{\lene}}{{\ \buildrel\le\over\ne\ }}
+\newcommand{{\ltgt}}{{\lessgtr}}
+\newcommand{{\lteqgt}}{{\lesseqqgtr}}
+\newcommand{{\gtlt}}{{\gtrless}}
+%
+% indicator function:
+\newcommand{{\indic}}{{\hbox{\it 1\hskip -3.5pt I}}}
+%
+% solid square:
+% \newcommand{{\qed}}{{\quad\vrule height .9ex width .8ex depth -.1ex }}
+%
+% plim:
+\newcommand{{\plim}}{{\ \buildrel p \over \longrightarrow \ }}
+%
+% independent:
+\newcommand{{\indep}}{{\underline{\;\|\;}}}
+%
+% Binomial coefficient:
+\newcommand{\bin}[2]{\left(\begin{array}{@{} c @{}} #1 \\#2 \end{array} \right)   }
+%
+% convergence:
+\newcommand{{\convc}}{{\ \buildrel c \over \longrightarrow \ }}
+\newcommand{{\convd}}{{\ \buildrel d \over \longrightarrow \ }}
+\newcommand{{\convp}}{{\ \buildrel p \over \longrightarrow \ }}
+\newcommand{{\convm}}{{\ \buildrel M \over \longrightarrow \ }}
+\newcommand{{\convas}}{{\ \buildrel a.s. \over \longrightarrow \ }}
+\newcommand{{\eqld}}{{\ \buildrel LD \over = \ }}
+%
+% distributed as:
+\newcommand{{\sima}}{{\;\buildrel\hbox{\scriptsize a}\over\sim\;}}
+\newcommand{{\simapp}}{{\;\buildrel\hbox{\scriptsize approx.}\over\sim\;}}
+\newcommand{{\simasy}}{{\;\buildrel\hbox{\scriptsize asy.}\over\sim\;}}
+%
+% other stuff:
+\newcommand{{\Xbeta}}{{\boldsymbol X\boldsymbol\beta}}
+\newcommand{{\xbeta}}{{\boldsymbol x\boldsymbol\beta}}
+\newcommand{{\Xibeta}}{{\boldsymbol X_i\boldsymbol\beta}}
+\newcommand{{\xibeta}}{{\boldsymbol x_i\boldsymbol\beta}}
+\newcommand{{\var}}{{\text{VAR}}}
+\newcommand{{\samp}}{{\mathcal S}}
+\newcommand{{\sampstar}}{{\mathcal S}^*}
+\newcommand{{\vecq}}{{\boldsymbol i\boldsymbol\tau}}
+%
+% define bold Greek characters:
+\newcommand{{\bbeta}}{{\boldsymbol\beta}}
+\newcommand{{\bepsilon}}{{\boldsymbol\varepsilon}}
+\newcommand{{\boldeta}}{{\boldsymbol\eta}}
+\newcommand{{\boldphi}}{{\boldsymbol\phi}}
+\newcommand{{\boldpsi}}{{\boldsymbol\psi}}
+\newcommand{{\btheta}}{{\boldsymbol\theta}}
+\newcommand{{\BSigma}}{{\boldsymbol\Sigma}}
+\newcommand{{\BoldOmega}}{{\boldsymbol\Omega}}
+\newcommand{{\brho}}{{\boldsymbol\rho}}
+\newcommand{{\bomega}}{{\boldsymbol\omega}}
+\newcommand{{\bDelta}}{{\boldsymbol\Delta}}
+\newcommand{{\bdelta}}{{\boldsymbol\delta}}
+%
+% newcommand{{ine bold digits:
+\newcommand{{\boldzero}}{{\boldsymbol 0}}
+\newcommand{{\bzero}}{{\boldsymbol 0}}
+%
+% define bold lower-case roman characters:
+\newcommand{{\ba}}{{\boldsymbol a}}
+\newcommand{{\bb}}{{\boldsymbol b}}
+\newcommand{{\bc}}{{\boldsymbol c}}
+\newcommand{{\bd}}{{\boldsymbol d}}
+\newcommand{{\be}}{{\boldsymbol e}}
+\newcommand{{\boldf}}{{\boldsymbol f}}
+\newcommand{{\bg}}{{\boldsymbol g}}
+\newcommand{{\bh}}{{\boldsymbol h}}
+\newcommand{{\bi}}{{\boldsymbol i}}
+\newcommand{{\bj}}{{\boldsymbol j}}
+\newcommand{{\bk}}{{\boldsymbol k}}
+\newcommand{{\bl}}{{\boldsymbol l}}
+\newcommand{{\bm}}{{\boldsymbol m}}
+\newcommand{{\bn}}{{\boldsymbol n}}
+\newcommand{{\bo}}{{\boldsymbol o}}
+\newcommand{{\bp}}{{\boldsymbol p}}
+\newcommand{{\bq}}{{\boldsymbol q}}
+\newcommand{{\br}}{{\boldsymbol r}}
+\newcommand{{\bs}}{{\boldsymbol s}}
+\newcommand{{\bt}}{{\boldsymbol t}}
+\newcommand{{\bu}}{{\boldsymbol u}}
+\newcommand{{\bv}}{{\boldsymbol v}}
+\newcommand{{\bw}}{{\boldsymbol w}}
+\newcommand{{\bx}}{{\boldsymbol x}}
+\newcommand{{\by}}{{\boldsymbol y}}
+\newcommand{{\bz}}{{\boldsymbol z}}
+%%}
+%% newcommand{{ine bold upper-case roman characters}
+%%}
+\newcommand{{\BA}}{{\boldsymbol A}}
+\newcommand{{\BB}}{{\boldsymbol B}}
+\newcommand{{\BC}}{{\boldsymbol C}}
+\newcommand{{\BD}}{{\boldsymbol D}}
+\newcommand{{\BE}}{{\boldsymbol E}}
+\newcommand{{\BF}}{{\boldsymbol F}}
+\newcommand{{\BG}}{{\boldsymbol G}}
+\newcommand{{\BH}}{{\boldsymbol H}}
+\newcommand{{\BI}}{{\boldsymbol I}}
+\newcommand{{\BJ}}{{\boldsymbol J}}
+\newcommand{{\BK}}{{\boldsymbol K}}
+\newcommand{{\BL}}{{\boldsymbol L}}
+\newcommand{{\BM}}{{\boldsymbol M}}
+\newcommand{{\BN}}{{\boldsymbol N}}
+\newcommand{{\BO}}{{\boldsymbol O}}
+\newcommand{{\BP}}{{\boldsymbol P}}
+\newcommand{{\BQ}}{{\boldsymbol Q}}
+\newcommand{{\BR}}{{\boldsymbol R}}
+\newcommand{{\BS}}{{\boldsymbol S}}
+\newcommand{{\BT}}{{\boldsymbol T}}
+\newcommand{{\BU}}{{\boldsymbol U}}
+\newcommand{{\BV}}{{\boldsymbol V}}
+\newcommand{{\BW}}{{\boldsymbol W}}
+\newcommand{{\BX}}{{\boldsymbol X}}
+\newcommand{{\BY}}{{\boldsymbol Y}}
+\newcommand{{\BZ}}{{\boldsymbol Z}}
+%
+% define euler font:
+\newcommand{{\As}}{{\mathcal A}}
+\newcommand{{\Bs}}{{\mathcal B}}
+\newcommand{{\Cs}}{{\mathcal C}}
+\newcommand{{\Ds}}{{\mathcal D}}
+\newcommand{{\Es}}{{\mathcal E}}
+\newcommand{{\Fs}}{{\mathcal F}}
+\newcommand{{\Gs}}{{\mathcal G}}
+\newcommand{{\Hs}}{{\mathcal H}}
+\newcommand{{\Is}}{{\mathcal I}}
+\newcommand{{\Js}}{{\mathcal J}}
+\newcommand{{\Ks}}{{\mathcal K}}
+\newcommand{{\Ls}}{{\mathcal L}}
+\newcommand{{\Ms}}{{\mathcal M}}
+\newcommand{{\Ns}}{{\mathcal N}}
+\newcommand{{\Os}}{{\mathcal O}}
+\newcommand{{\Ps}}{{\mathcal P}}
+\newcommand{{\Qs}}{{\mathcal Q}}
+\newcommand{{\Rs}}{{\mathcal R}}
+\newcommand{{\Ss}}{{\mathcal S}}
+\newcommand{{\Ts}}{{\mathcal T}}
+\newcommand{{\Us}}{{\mathcal U}}
+\newcommand{{\Vs}}{{\mathcal V}}
+\newcommand{{\Ws}}{{\mathcal W}}
+\newcommand{{\Xs}}{{\mathcal X}}
+\newcommand{{\Ys}}{{\mathcal Y}}
+\newcommand{{\Zs}}{{\mathcal Z}}
+%
+% define caligraphic font:
+\newcommand{{\Ac}}{{\cal A}}
+\newcommand{{\Bc}}{{\cal B}}
+\newcommand{{\Cc}}{{\cal C}}
+\newcommand{{\Dc}}{{\cal D}}
+\newcommand{{\Ec}}{{\cal E}}
+\newcommand{{\Fc}}{{\cal F}}
+\newcommand{{\Gc}}{{\cal G}}
+\newcommand{{\Hc}}{{\cal H}}
+\newcommand{{\Ic}}{{\cal I}}
+\newcommand{{\Jc}}{{\cal J}}
+\newcommand{{\Kc}}{{\cal K}}
+\newcommand{{\Lc}}{{\cal L}}
+\newcommand{{\Mc}}{{\cal M}}
+\newcommand{{\Nc}}{{\cal N}}
+\newcommand{{\Oc}}{{\cal O}}
+\newcommand{{\Pc}}{{\cal P}}
+\newcommand{{\Qc}}{{\cal Q}}
+\newcommand{{\Rc}}{{\cal R}}
+\newcommand{{\Sc}}{{\cal S}}
+\newcommand{{\Tc}}{{\cal T}}
+\newcommand{{\Uc}}{{\cal U}}
+\newcommand{{\Vc}}{{\cal V}}
+\newcommand{{\Wc}}{{\cal W}}
+\newcommand{{\Xc}}{{\cal X}}
+\newcommand{{\Yc}}{{\cal Y}}
+\newcommand{{\Zc}}{{\cal Z}}
+%
+% define Euler fraktur font:
+\newcommand{{\Af}}{{\mathfrak A}}
+\newcommand{{\Bf}}{{\mathfrak B}}
+\newcommand{{\Cf}}{{\mathfrak C}}
+\newcommand{{\Df}}{{\mathfrak D}}
+\newcommand{{\Ef}}{{\mathfrak E}}
+\newcommand{{\Ff}}{{\mathfrak F}}
+\newcommand{{\Gf}}{{\mathfrak G}}
+\newcommand{{\Hf}}{{\mathfrak H}}
+\newcommand{{\If}}{{\mathfrak I}}
+\newcommand{{\Jf}}{{\mathfrak J}}
+\newcommand{{\Kf}}{{\mathfrak K}}
+\newcommand{{\Lf}}{{\mathfrak L}}
+\newcommand{{\Mf}}{{\mathfrak M}}
+\newcommand{{\Nf}}{{\mathfrak N}}
+\newcommand{{\Of}}{{\mathfrak O}}
+\newcommand{{\Pf}}{{\mathfrak P}}
+\newcommand{{\Qf}}{{\mathfrak Q}}
+\newcommand{{\Rf}}{{\mathfrak R}}
+\newcommand{{\Sf}}{{\mathfrak S}}
+\newcommand{{\Tf}}{{\mathfrak T}}
+\newcommand{{\Uf}}{{\mathfrak U}}
+\newcommand{{\Vf}}{{\mathfrak V}}
+\newcommand{{\Wf}}{{\mathfrak W}}
+\newcommand{{\Xf}}{{\mathfrak X}}
+\newcommand{{\Yf}}{{\mathfrak Y}}
+\newcommand{{\Zf}}{{\mathfrak Z}}
+%
+% Big or responsive size norm symbol
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\newcommand\normx[1]{\left\Vert#1\right\Vert}
+%
+% define blue and red color 
+\RequirePackage{xcolor}
+\definecolor{blueb}{RGB}{79,112,190}
+\newcommand{\blueb}{\color{blueb}}
+\newcommand{\red}{\color{red}}
+%
+% define the paper tile and number
+\newcommand\meta[1]{$\langle\hbox{#1}\rangle$}
+\newcommand\PaperTitle[1]{``\textit{#1}''}
+%
+% define an environment for responding to review comments
+\newenvironment{response}[1][]{%
+\begin{trivlist}\item\textbf{RE: }%
+}%
+{\end{trivlist}}%
+%
+% define argmax and argmin
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
