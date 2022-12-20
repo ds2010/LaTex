@@ -1,0 +1,483 @@
+\documentclass[12pt]{article}
+
+\setlength{\textwidth}{6.5truein}
+\setlength{\textheight}{8.625truein}
+\setlength{\footskip}{0.375truein}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparpush}{0pt}
+\setlength{\topmargin}{0pt}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{0pt}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\evensidemargin}{0pt}
+\setlength{\hoffset}{0pt}
+\setlength\parindent{0pt}
+\newcommand{\np}{\vskip 0.3cm}
+
+\usepackage{amsmath,amsthm,amssymb,amscd}
+\usepackage{float, graphicx}
+\usepackage{caption, subcaption}
+\usepackage{hyperref}
+\usepackage{harvard}
+\usepackage{ds}
+\pagestyle{empty}
+
+\usepackage{newpxtext} 
+
+\AtBeginDocument{\maketitle\thispagestyle{empty}\noindent}
+
+\renewcommand{\refname}{References (not cited in the main text)}
+
+\title{Responses to Review Comments on \PaperTitle{Partial frontiers are not quantiles} \meta{EJOR-D-22-01411}\\
+  \vspace{0.5em} \large 
+  %\emph{First round of reviewing}
+  }
+\author{Sheng Dai \and Timo Kuosmanen \and Xun Zhou}
+\date{\today}
+
+\begin{document}
+
+\captionsetup[figure]{labelfont={bf},labelformat={default},labelsep=period,name={Fig.}}
+
+\citationmode{abbr}
+\bibliographystyle{jbes}
+\baselineskip 20pt
+
+We would like to thank the editor and the three anonymous reviewers for constructive comments and feedback to help us further improve our paper. We appreciate the opportunity to submit a revision. \np
+
+In this revision report, we provide detailed answers to each review comment and explain how those issues have been addressed in the revised manuscript. For clarity, the reviewers' comments have been typed with {\blueb \begin{sf}blue color Serif font\end{sf}}, and we have highlighted all the changes in the revised manuscript by the use of {\color{red}red color} for the text. \np
+
+%------------%
+%            %
+%------------%
+
+\newpage
+\section*{Reviewer~\#1}
+
+\begin{sf}
+
+{\blueb Partial frontiers are not quantiles\np
+
+1. ``Moreover, order-$\alpha$, the most widely used partial frontier estimator, distinguishes itself from the quantile regression approach in that it cannot ensure the observed data is strictly split into proportions $\alpha$ below and 1-$\alpha$ above for any $0 < \alpha < 1$.'' I think this point is important and requires more prominence. \np
+}
+\end{sf}
+\begin{response}
+Thank you for this good suggestion. We have added the following explanations in the discussion part of Section 3 (see \textbf{page })\np
+
+``Second, partial frontiers may violate the quantile property (i.e., \textit{part i)} in Theorem 1). The partial frontier estimators are on condition that $Y \ge y (X \le x)$ instead of $Y \ge y (X = x)$; the latter is commonly used in the quantile regression estimators (see the survival function in equation 10). That is, order-$\alpha$ cannot ensure the observed data is strictly split into proportions $\alpha$ below and $1-\alpha$ above for any $0< \alpha <1$, particularly as $\alpha \rightarrow 0$. However, for high quantiles, the order-$\alpha$ frontier could guarantee a $100\alpha$\% chance of enveloping the observed data. We will document the evidence supporting this finding in the following application and simulations.''
+\end{response}
+
+%-----------------------
+
+ \np
+ \np
+ \np
+\begin{sf}
+{\blueb 2. ``we demonstrate that partial frontiers are not quantiles.'' Is there a claim by authors that partial frontiers are quantiles?}
+\end{sf}
+\begin{response}
+% No, we did not state that partial frontiers are quantiles. When reviewing the existing literature, we notice that there is misleading evidence about whether the partial frontier estimator is a quantile estimator. We thus would like to make it clearer through a thorough comparison. Both empirical and simulation findings provide evidence that partial frontiers are not quantiles.
+\end{response}
+
+%-----------------------
+ 
+ \np
+ \np
+ \np
+\begin{sf}
+{\blueb 3. ``This, however, is often not the case in real applications, where two or more units may use exactly the same amount of inputs'' This event has zero probability so the authors overstimate its importance?}
+\end{sf}
+\begin{response}
+Thanks for this comment. The problem of non-unique quantile estimation could be assumed away if the regressors $\bx$ are randomly drawn from a continuous distribution (see Kuosmanen et al., 2015). However, input vectors $\bx$ are not randomly drawn in practice, where two or more observations may use exactly the same amount of inputs. For example, it is possible that two firms use the same amount of labor and capital in a two-input and one-output production technology in real-world applications, thereby inducing the non-uniqueness problem in quantile regression.\np
+
+To avoid confusion, we have rephrased and clarified the argument in the revised manuscript (see \textbf{pages}).
+\end{response}
+
+%-----------------------
+ 
+ \np
+ \np
+ \np
+\begin{sf}
+{\blueb 4. How is random noise allowed in (4)? If not the authors should explain this. Same for (9).}
+\end{sf}
+\begin{response}
+Thanks for this comment. For both CQR and isotonic CQR estimation, the empirical residual vector $\hat{\varepsilon}_i$ (i.e., $\hat{\varepsilon}_i = y_i - \hat{f}$) is split into its positive and negative parts, where the positive part of the estimated residual (i.e., $y_i \ge \hat{f}$) is denoted by $\hat{\varepsilon}_i^{+}$ and the negative part of the estimated residual (i.e., $y_i < \hat{f}$) is by $\hat{\varepsilon}_i^{-}$. That is, the random noise $\varepsilon$ is transformed into two components $\varepsilon^{+}$ and $\varepsilon^{-}$ and still allowed in problems (4) and (13) [note that problem (9) in the original submission has been renumbered as (13)]. We have added further explanations in the revised manuscript (see \textbf{page }).
+\end{response}
+
+%-----------------------
+ 
+ \np
+ \np
+ \np
+\begin{sf}
+{\blueb 5. Theorem 2: Can you simplify the denominator to the number of observations, approximately at least?}
+\end{sf}
+\begin{response}
+Thanks for this comment, but we are afraid it seems impossible to further simplify the denominator to the number of observations in Theorem 2. \np
+
+In Theorem 1, we can simplify the denominator to the number of observations because the interpretation of quantiles is intuitive. For the $\tau\textsuperscript{th}$ quantile $q_\tau$, it indicates a proportion of $100\tau$\% of the data lies below $q_{\tau}$ and a proportion of $100(1-\tau)$\% of the data lies above $q_{\tau}$. This is also a demonstration of the quantile property. \np
+
+However, the interpretation of expectiles is not that intuitive. For example, given $x$ and $\tilde{\tau}=0.2$, the expectile $m_{0.2}$ is determined such that 20\% of the mean distance between $m_{0.2}$ and $y$ is given by the mass below it and correspondingly 80\% of the mean distance between $m_{0.2}$ and $y$ is given by the mass above it (see Fig.~1 for an illustration). This exact property can be observed in Theorem 2, where the common term (i.e., $\frac{1}{n}$) has been eliminated. The denominator is then the sum of the distance of all observations to an expectile. We thus cannot further simplify the denominator even in an approximation way.
+\begin{figure}[H]
+    \centering
+    \includegraphics[clip, trim=6cm 19cm 6cm 5cm, width=0.8\textwidth]{expectile.pdf}
+    \caption{Illustration of the 20$\textsuperscript{th}$ expectile $m_{0.2}$.\\
+    \textit{Source:~\protect\citename{SchulzeWaltrup2014} \protect\citeyear{SchulzeWaltrup2014}}}
+\end{figure}
+
+\end{response}
+
+%-----------------------
+ 
+ \np
+ \np
+ \np
+\begin{sf}
+{\blueb 6. Isn't Convex Nonparametric LS an alternative to (9). Why isn't this considered?}
+\end{sf}
+\begin{response}
+Thanks for this comment. Convex Nonparametric LS (CNLS; Kuosmanen, 2008) is a special case of convex expectile regression, i.e., problem (6), when expectile $\tilde{\tau}=1$. We have noted this in the revised manuscript.\np
+
+\end{response}
+
+%-----------------------
+ 
+ \np
+ \np
+ \np
+\begin{sf}
+{\blueb 7. Table 2: Can you relate the bad behavior of order-$\alpha$ to its asymptotic properties and provide some guidance for the simulations?}
+\end{sf}
+\begin{response}
+Thanks for this comment. The bad behavior of order-$\alpha$ (i.e., underperforming the isotonic CQR/CER estimators, as shown in Table 2) is not much related to its asymptotic properties. While the MSE of order-$\alpha$ decreases as sample size increases according to its asymptotic properties, the bias does not diminish, which might be due to losing the root-$n$ consistency.\np
+
+It is worth noting that both the partial frontier estimators and the proposed quantile regression estimators may suffer from small sample bias. Therefore, a practical tip for the simulations is to avoid conducting the experiments in a small sample size (e.g., $n=50$). This is the reason why we analyze and discuss the simulation results in such cases as $n=1000$ (e.g., Figs.~3--6).
+
+\end{response}
+
+%-----------------------
+ 
+ \np
+ \np
+ \np
+\begin{sf}
+{\blueb 8. How is concavity examined?}
+\end{sf}
+\begin{response}
+Thanks for this good question. In the revised manuscript, we have added the following discussion on how to examine concavity in our developed shape-constrained nonparametric quantile regression approaches (see \textbf{page}).\np
+
+``Considering that CQR (4) and CER (6) are the restricted special cases of isotonic CQR (13) and isotonic CER (14), we could resort to isotonic CQR and isotonic CER to examine concavity for their convex counterparts (i.e., CQR and CER). Specifically, we can apply the standard $F$-test to test if the sum of weighted absolute residuals of the CQR problem is significantly smaller than that of the isotonic CQR problem.$^6$ Note that the degree of freedom for those shape-constrained nonparametric regression estimators can be determined by a data-driven approach (see, e.g., Chen et al., 2020). Another possible approach to testing the shape (i.e., concavity and even monotonicity) is to apply the wild bootstrap methods (see Yagi et al., 2020). While such a testing procedure is promising and straightforward, the computational efficiency is a serious concern, especially with a large sample size (Dai, 2023).''\np
+
+``Footnote 6: In the expectile case, we can replace the sum of weighted absolute residuals with the sum of weighted squared residuals.''
+
+\end{response}
+
+%------------%
+%            %
+%------------%
+
+\newpage
+\section*{Reviewer~\#2}
+
+\begin{sf}
+{\blueb The paper produces a convexification approach of order-$\alpha$ frontier as an alternative of convex quantile regression (CQR) and convex expectile regression (CER). Based on Monte Carlo simulations and on an empirical analysis when convexify is imposed the partial frontiers behave better than the non-convexified estimators. However, they provide evidence that regardless the convexification (or not) approach imposed quantile estimators are better for estimating quantiles than partial frontiers.\np
+
+I believe that the paper is of great interest. I have some points that the authors can address. Specifically:} \np
+\end{sf}
+\begin{response}
+Thank you very much for your positive assessment! We are pleased to hear that our paper is of great interest. 
+\end{response}
+
+%-----------------------
+
+\np
+\np
+\np
+\begin{sf}
+{\blueb
+I would l like to point out to the authors the following two studies that use the convexification of the order-$m$ and the order-$\alpha$ frontier.\np
+
+Based on the eco-efficiency indicator presented introduced by Kuosmanen and Kortelainen (2005), Kounetas et al. (2021) provide both and order-$m$ eco-efficiency indicator and a convexified order-$m$ eco-efficiency (please see equation 11 of Kounetas et al.) based on  Daraio and Simar (2007).\np
+
+Please note that the authors do mentioned the above study but it needs to be clarified that the convexification has been applied. The paper in its submitted version this is not clear.\np
+
+In addition based on  Daraio and Simar (2007), Polemis et al. (2021) in the same lines provide a convexified order-$\alpha$ eco-efficiency indicator (equation 9) based again on Kuosmanen and Kortelainen's (2005) eco-efficiency measure. \np
+
+REF:
+
+Daraio, C., \& Simar, L. (2007a). Conditional nonparametric frontier models for convex and nonconvex technologies: A unifying approach. Journal of Productivity Analysis, 28 (1-2), 13-32.\np
+
+Polemis, M. L., Stengos, T., Tzeremes, P., \& Tzeremes, N. G. (2021). Quantile eco-efficiency estimation and convergence: A nonparametric frontier approach. Economics Letters, 202, 109813.\np
+
+Kounetas, K. E., Polemis, M. L., \& Tzeremes, N. G. (2021). Measurement of eco-efficiency and convergence: Evidence from a non-parametric frontier analysis. European Journal of Operational Research, 291(1), 365-378.\np
+
+Kuosmanen, T., \& Kortelainen, M. (2005). Measuring eco-efficiency of production with data envelopment analysis. Journal of Industrial Ecology, 9(4), 59-72.}
+\end{sf}
+\begin{response}
+We agree with your comment and we have added the following further discussion to the revised manuscript (see \textbf{page} ).\np
+
+``More recently, following the framework by Daraio \& Simar (2007), Kounetas et al.~(2021) and Polemis et al.~(2021) provide a convexified order-$m$ and a convexified order-$\alpha$ eco-efficiency indicator, respectively, based on Kuosmanen and Kortelainen's (2005) eco-efficiency measure. Furthermore, Ferreira \& Marques (2020) propose another convexified version of order-$\alpha$ as an extension of Daraio \& Simar (2007). This extended approach assumes virtual weight restrictions and non-variable returns to scale and has the same results as the conventional order-$\alpha$ approach in the case of nonconvex attainable sets, unrestricted formulations, and VRS setting.''
+\end{response}
+
+%-----------------------
+
+\np
+\np
+\np
+\begin{sf}
+{\blueb 2) Equations 9 and 10 need to be better explained.}
+\end{sf}
+\begin{response}
+Thanks for this good suggestion. In the revised manuscript, we have added further explanations to the two equations, which are now renumbered as (13) and (14) (see \textbf{pages} ).\np
+
+Note that all the notations but $p_{ih}$ in problems (13) and (14) are the same as those in problems (4) and (6). Therefore, to avoid unnecessary repetition, we focus on the differences between isotonic CQR/CER and CQR/CER in the further explanations of problems (13) and (14). \np
+
+Furthermore, after the introduction of isotonic CQR and CER (i.e., below equation 14), we have elaborated more on the comparison of partial frontiers and quantile regression estimators (see \textbf{page }).
+
+\end{response}
+
+%-----------------------
+
+\np
+\np
+\np
+\begin{sf}
+{\blueb
+3) Daraio and Simar (2007b) assert that:\np
+
+the partial estimators do not envelope all data points even in cases that $m$=the size of sample, or $\alpha=100\%$. As a result are and for that are less affected, and hence more robust, to extreme values and outliers in the data. In addition, they do not suffer of the so called curse of dimensionality.}
+\end{sf}
+\begin{response}
+Thanks for this comment. Both quantile $\tau$ and expectile $\tilde{\tau}$ are assumed to be strictly between 0 and 1 in quantile regression (Koenker and Bassett, 1978) and expectile regression (Newey and Powell, 1987). This also applies to CQR/CER and isotonic CQR/CER. Hence, these quantile regression estimators are, too, less affected and more robust to extreme values and outliers. We have added further discussion on this matter in the revised manuscript (see \textbf{page} ). \np
+
+Regarding the curse of dimensionality, please see the next response. 
+\end{response}
+
+%-----------------------
+
+\np
+\np
+\np
+\begin{sf}
+{\blueb
+4) In addition Daraio and Simar (2007b) Partial frontiers are estimators that approach the ``true'' frontier as fast as parametric estimators (i.e., the speed of convergence of order-$m$ and $\alpha$ frontiers is root-$n$ where $n$ is the number of firms or DMUs analysed). \np
+
+The above two comments (3) and (4) need to be also discussed in relation to the proposed quantile estimators proposed.}
+\end{sf}
+\begin{response}
+Thanks for this comment. The rate of convergence of order-$m$ and $\alpha$ frontiers is indeed root-$n$ (Daraio and Simar, 2007), suggesting that this property merely relies on the number of observations (i.e., $n$) and hence the curse of dimensionality problem can be avoided in these partial frontier estimators. However, this is not guaranteed in some exceptions (see Footnote 7 in the revised manuscript for a discussion).  
+
+The rate of convergence of CQR/CER and isotonic CQR/CER has not been formally investigated in the literature, but we conjecture that they should satisfy a similar convergence rate to convex regression (Lim, 2014) or its extension (Yagi et al., 2020). This is because CQR/CER and their nonconvex counterparts are more strongly connected with convex regression and can be considered special cases of convex regression. Note that the convergence rate of convex regression is affected by $n + d$ rather than merely $n$ (or $d$) (see Lim, 2014; Yagi et al., 2020). Therefore, the curse of dimensionality problem might still exist in the proposed quantile estimators. To ameliorate the effect of the curse of dimensionality, we have recently proposed the penalized CQR/CER approaches by introducing $L_0$-norm regularization and showed their high effectiveness in the dimensionality reduction of variables (or inputs) (see Dai, 2023). \np
+
+We believe that with the help of machine learning and statistics, the curse of dimensionality in the proposed quantile estimators is no longer a serious problem. Nevertheless, we agree that rigorous proof of the convergence rate of CQR/CER and isotonic CQR/CER would be an interesting topic for future research that benefits the relevant theory development. \np
+
+We have added further discussion on the convergence rate and the curse of dimensionality in the revised manuscript (see \textbf{page }).
+
+\end{response}
+
+%-----------------------
+
+\np
+\np
+\np
+
+\begin{sf}
+{\blueb
+5) The economic interpretation of all compared estimators (convex and non-convex) need to be addressed. For instance for the case of order-$\alpha$ we have (i.e. for input efficiency) Daraio and Simar (2007b, p. 74):\np
+
+if $\theta_{\alpha}(x, y) = 1$, then the unit is said to be efficient at the level $\alpha \times 100\%$ since it is dominated by DMUs producing more output than $y$ with a probability $1 - \alpha$. If $\theta_{\alpha}(x, y) < 1$, then the unit $(x, y)$ has to reduce its input to the level $\theta_{\alpha}(x, y)x$ to reach the input efficient frontier of level $\alpha$ $\times$ 100\%. Note that here $\theta_{\alpha}(x, y)$ can be greater than one indicating that a DMU $(x, y)$ can increase its input by a factor $\theta_{\alpha}(x, y)$ to reach the same frontier. Therefore, this latter DMU is considered as super-efficient with respect to the order-$\alpha$ frontier level.\np
+
+REF:
+
+Daraio, C., \& Simar, L. (2007b). Advanced robust and nonparametric methods in efficiency analysis: Methodology and applications. Springer Science \& Business Media.}
+\end{sf}
+\begin{response}
+Thank you for this good suggestion. In the context of efficiency analysis, the economic interpretation of quantile regression estimators has been elaborated by Lai et al. (2020), where the estimated quantile production functions serve as a better benchmark for a DMU's production structure analysis and hence lead to an extended meta-frontier analysis. \np
+
+Furthermore, as explained by Kuosmanen and Zhou (2021), quantile regression estimators are more appropriate for shadow pricing undesirable outputs (e.g., pollutants, CO$_2$ emissions). \np
+
+In the revised manuscript we have added a discussion on the economic interpretation of the proposed estimators (see \textbf{page }).
+
+\end{response}
+
+%-----------------------
+
+\np
+\np
+\np
+\begin{sf}
+{\blueb
+6) The Conclusions need to be enhanced with policy implications for the decision maker and in relation to the empirical application.}
+\end{sf}
+\begin{response}
+Thank you for this good suggestion. We recognize that a better modeling strategy can contribute to better-informed policy implementation and assessment. In the revised manuscript, we have enhanced the conclusions with the policy implications of the empirical findings (see \textbf{page}). \np
+
+``Therefore, two policy implications are recommended. First, both quantile regression and partial frontier estimators are robust to outliers and hence can increase the accuracy of efficiency analysis. More accurate efficiency measurements can contribute to more efficient resource allocation in both business and public policy decisions. Second, the monotonicity of quantile regression estimators enables shadow pricing environmental bads with the efficiency level of all observations accounted. Shadow pricing results offer an important reference for efficient environmental policy and regulation.''
+\end{response}
+
+%------------%
+%            %
+%------------%
+
+\newpage
+\section*{Reviewer~\#3}
+
+\begin{sf}
+{\blueb Synopsis: In this paper, the authors analyze partial frontier estimators and quantile regression models. They propose extensions to existing estimators: a convexified order-$\alpha$ as an alternative to convex quantile regression (CQR) and convex expectile regression (CER), and two new nonconvex estimators: isotonic CQR and isotonic CER as alternatives to order-$\alpha$. They provide simulations and an empirical analysis on a real dataset. \np  
+
+Main comments: This paper presents a very incomplete picture of the existing literature on partial frontier estimation with a lot of missing information. The comparison of performance between quantile regressions models and partial frontier models is also incomplete and the authors do not provide any rigorous analysis on their new estimators, neither consistency analysis nor convergence rates. And as far as I am concerned, the title is wrong: order-$\alpha$ estimators are indeed quantiles! I would then strongly advise the authors to rewrite the paper with a clear presentation of the existing literature and their goal. Statistical properties of their new estimators also need to be provided to complete the picture. More detailed comments are gathered below. } 
+\end{sf}
+\begin{response}
+Thank you very much for your assessment and feedback.\np
+
+We acknowledge there is a large existing literature on partial frontier estimators that discusses its recent developments and perspectives (see, e.g., Simar \& Wilson, 2008; \citename{Simar2013}, \citeyear*{Simar2013}). To avoid unnecessary repetition, we provided a shorter introduction to the classical order-$\alpha$ estimator as part of the preliminaries. But now in the revised manuscript, we have enriched the literature review and referred the reader to those related references for further discussion (see \textbf{page }).\np
+
+We have also carried out a comprehensive comparison of partial frontier and quantile regression estimators in Section 3 (see \textbf{page }).\np
+
+Our detailed responses to all the other comments are as follows. 
+\end{response}
+
+%-----------------------
+
+\np
+\np
+\np
+\begin{sf}
+{\blueb Specific comments: \np
+
+First of all, I do not understand the title: ``Partial frontiers are not quantiles''. It is obviously not true for order-$\alpha$ models (as it is clear in papers quoted by the authors, Aragon et al. 2005 or Daouia and Simar 2007). Even order-$m$ efficiency estimators are in principle different from quantiles but some connections can be made with quantile estimators (as suggested in Daouia and Gijbels 2011). The authors should choose a more appropriate (and correct!) title.}
+\end{sf}
+\begin{response}
+
+% We would stress that our purpose is not to below the contribution of partial frontier estimators.
+
+
+
+
+\end{response}
+
+%-----------------------
+
+\np
+\np
+\np
+\begin{sf}
+{\blueb 
+Section 2 provides a very incomplete picture on the existing literature and the properties of both quantile regression models and partial frontier models should be set more clearly. In particular, issues like the dimension of $Y$ or the curse of dimensionality should be raised at the beginning. Indeed, quantile frontiers allow for multivariate output $Y$, which is not the case for quantile regressions. And conditioning by $X \le x$ (quantile frontiers) instead of $X = x$ (quantile regressions) allows to avoid the classical issue of curse of dimensionality. }
+\end{sf}
+\begin{response}
+Thanks for the comments. To date, there are many useful properties of order-$\alpha$ and its extensions discussed in a large literature. To avoid unnecessary repetition, we provided a brief overview of the classical order-$\alpha$ estimator and referred the reader to the methodological developments in, e.g., Wheelock \& Wilson (2009), Simar \& Vanhems (2012), and Daouia et al. (2017) in the original submission. In the revised manuscript, we have enriched the review of order-$\alpha$ with more details about the methodological developments (see \textbf{page }).\np
+
+We agree that the dimension of $Y$ and the curse of dimensionality are important issues worth discussing. In the revised manuscript, we have added further discussions on the dimension of $Y$ and the curse of dimensionality (see \textbf{page }).
+
+\end{response}
+
+%-----------------------
+
+\np
+\np
+\np
+\begin{sf}
+{\blueb As raised by the authors, monotonicity can be an issue for quantile frontiers estimators but this problem has been recently solved by Daouia et al. 2017, and this result should be quoted to complete the literature review.}
+\end{sf}
+\begin{response}
+Thanks for pointing this out. We have added a further discussion on this important reference in Section 2.4 (see \textbf{page }).
+
+\end{response}
+
+
+%-----------------------
+
+\np
+\np
+\np
+\begin{sf}
+{\blueb The authors seem to mix nonparametric and parametric approaches without stating clearly that partial frontiers are fully nonparametric whereas the estimators proposed in sections 2.2, 2.3 and in Section 3, rely on parameters $\alpha$ and $\bbeta$. }
+\end{sf}
+\begin{response}
+Thanks for this comment. Partial frontier estimators are indeed fully nonparametric estimators, but all proposed quantile regression based estimators (i.e., CQR/CER and isotonic CQR/CER) are fully nonparametric as well.\np
+
+In contrast to the linear and nonlinear parametric approaches, as mentioned in Section 2.1, we do not assume \textbf{\textit{a priori}} functional form for $f$ in equation (1). Instead, we impose a more general condition that $f$ belongs to a family of continuous, monotonic increasing, and globally concave functions
+\begin{equation*}
+    \Fc_2 = \left\{
+          f: \real^d \rightarrow \real \;\middle|\;
+          \begin{aligned}
+          & \mu f(\bx) + (\textbf{1}-\mu) f(\bx^\prime) \le f(\mu \bx + (\textbf{1}-\mu) \bx^\prime), \\
+          & \hspace*{7em} \forall \bx, \bx^\prime \in \real^d \text{ } \text{and} \text{ } \forall \mu \in [\textbf{0}, \textbf{1}] ; \\
+          & \text{if} \text{ } \bx \le \bx^\prime \Longrightarrow f(\bx) \le f(\bx^\prime)
+          \end{aligned}
+    \right\}
+\end{equation*}
+\np
+
+For a given quantile $\tau$ ($0<\tau<1$), such a monotone concave function $f$ can then be expressed as the following explicit representor function (see, e.g., Kuosmanen, 2008; Seijo \& Sen 2011)
+\begin{equation*}
+    \hat{f}_{\tau}(\bx)=\min_{i = 1, \ldots, n} \big\{\hat{\alpha}_i+\hat{\bbeta}_i^{'}\bx \big\}
+\end{equation*}
+\np
+
+The above representor function has at least two appealing features: 1) it enables us to connect the explicit representation with the regression function $\hat{f}_{\tau}$, which can be used for assessing marginal properties and for the purposes of forecasting and \textit{ex-post} economic modeling; 2) it enables us to transform the following infinite dimensional regression problem 
+\begin{equation*}
+\hat{f}_\tau \in \operatorname*{arg\,min}_{f_\tau \in \Fc_2}\tau\sum^{n}_{i=1}\rho_\tau(y_i - f_\tau(\bx_i))
+\end{equation*}
+or \begin{equation*}
+\hat{f}_{\tilde{\tau}} \in \operatorname*{arg\,min}_{f_{\tilde{\tau}} \in \Fc_2}{\tilde{\tau}}\sum^{n}_{i=1}\rho_{\tilde{\tau}}(y_i - f_{\tilde{\tau}}(\bx_i))^2
+\end{equation*}
+into a finite dimensional linear or quadratic programming problem, i.e., problems (3) or (4). Note that $\rho_\tau(t) = (\tau - \indic \{t \le 0\})t$ is the check function (Koenker and Bassett, 1978). These programming problems are tractably solved using the off-the-shelf solvers and also apply to the general multiple regression setting.\np
+
+$\alpha$ and $\bbeta$ are the essential elements of the explicit representor function for the monotone concave function, which demonstrates a close connection with the general multiple regression setting and has intuitive economic interpretations. In summary, the present quantile regression estimators are also fully nonparametric.\np
+
+In the revised manuscript, we have added further discussions to elaborate on that the proposed quantile regression estimators are fully nonparametric (see \textbf{page }).
+\end{response}
+
+%-----------------------
+
+\np
+\np
+\np
+\begin{sf}
+{\blueb Normal asymptotic theory has been proved for partial frontiers estimators whereas no asymptotic property is studied in this paper. It is mandatory to provide a deeper theoretical analysis of the properties of new estimators proposed by the authors. }
+\end{sf}
+\begin{response}
+Thanks for this comment. Consistency and rate of convergence of convex regression and its extensions have been well investigated in, e.g., Seijo \& Sen (2011), \citeasnoun{Lim2012}, Lim (2014), \citeasnoun{Kur2020}, and Yagi et al. (2020). We conjecture that the proposed quantile regression estimators should have similar asymptotic properties because CQR/CER and their nonconvex counterparts are more strongly connected with convex regression and can be considered special cases of convex regression. \np
+
+We do agree that extending these statistical theories to the proposed quantile regression estimators would be useful and that it is mandatory to provide a deeper theoretical analysis in the fields of statistics and econometrics. However, it might not be mandatory work in the operational research community, and one of our purposes in the present paper is to contribute to the methodology and practices of operational research. \np
+
+We thus leave the rigorous proof as a fascinating avenue for future research. In the revised manuscript, we have rephrased our arguments in the Conclusions section (see \textbf{page }).
+\end{response}
+
+%-----------------------
+
+\np
+\np
+\np
+\begin{sf}
+{\blueb Last remark, the authors should be careful when quoting papers. For example, on page 8, Simar et al. 2012 do not study order-$\alpha$ directional estimators but DEA directional estimators. The authors should quote instead Simar and Vanhems 2012 who studied order-$\alpha$ directional estimators.\np
+
+References: 
+
+Aragon, Y., Daouia, A., and Thomas-Agnan, C. (2005). Nonparametric frontier estimation: a conditional quantile-based approach. Econometric Theory, 21(2), 358-389. \np
+
+Daouia, A., and Gijbels, I. (2011). Robustness and inference in nonparametric partial frontier modeling. Journal of Econometrics, 161(2), 147-165. \np
+
+Daouia, A., Simar, L., and Wilson, P. W. (2017). Measuring firm performance using nonparametric quantile-type distances. Econometric Reviews, 36(1-3), 156-181. \np
+
+Simar, L., and Vanhems, A. (2012). Probabilistic characterization of directional distances and their robust versions. Journal of Econometrics, 166(2), 342-354. \np
+
+Simar, L., Vanhems, A., and Wilson, P. W. (2012). Statistical inference for DEA estimators of directional distances. European Journal of Operational Research, 220(3), 853-864. }
+\end{sf}
+\begin{response}
+Thanks for pointing this out. We apologize for this citation error and have fixed it in the revised manuscript (see \textbf{page }).
+
+\end{response}
+
+%-----------------------
+
+ \np
+ \np
+ \np
+\bibliography{References}
+
+\end{document}
